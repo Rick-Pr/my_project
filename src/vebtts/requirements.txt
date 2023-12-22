@@ -1,0 +1,8 @@
+silero
+django
+pydub
+omegaconf
+numpy
+torch
+soundfile
+ffmpeg

@@ -1,0 +1,37 @@
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% load static %}
+    <link type="image/x-icon" href="{% static 'tts/img/favicon.ico' %}" rel="shortcut icon">
+    {% load static %}
+    <link type="Image/x-icon" href="{% static 'tts/img/favicon.ico' %}" rel="icon">
+
+    <!-- Подключение файла стилей -->
+    <link rel="stylesheet" href="{% static 'tts/css/home.css' %}">
+    <title>Озвучивание текста</title>
+    <style>a {
+        text-decoration: none;
+        text-after-overflow: none;
+        color: #A4789BFF;
+    }</style>
+</head>
+<body>
+<div class="container">
+
+        <form action="http://127.0.0.1:8000/download/" method="POST" target="_blank">
+            {% csrf_token %}
+
+            {{ form.name }}<br>
+
+            <button class="button_control" type="submit" name="download">Озвучить</button>
+        </form>
+
+
+</div>
+
+</body>
+</html>

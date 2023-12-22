@@ -1,0 +1,101 @@
+/* Убираем все отступы */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+/* При расчете размеров инпутов учитываем внутренние отступы и границы */
+input,
+textarea {
+    box-sizing: border-box;
+    font-size: 20px;
+    color: #3e2093;
+}
+
+/* В body устанавливаем шрифт, ширину и высоту, а также фон */
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    width: 100%;
+    min-height: 100vh;
+    /*background: linear-gradient(45deg, #fff1eb, #ace0f9);*/
+    background-image: url("../img/background.jpg");
+    background-size: 100% auto;
+    display: flex;
+    justify-content: center; /* чтобы контейнер */
+    align-items: center; /* был по центру */
+}
+
+/* Ограничиваем контейнер по ширине 1000px */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+/* Стили самой формы */
+.content {
+    display: flex; /* делаем колонки в ряд */
+    align-items: center; /* выравниваем по центру */
+    /*justify-content: space-between; !* колонки растянутся на всю ширину *!*/
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+
+    /*box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);*/
+}
+
+
+
+/* Стили для input и textarea (поле сообщение) */
+
+.input-box textarea,
+.text_control {
+    height: 300px; /* по сути задаем высоту input'а */
+    width: 100%; /* ширина на всю ширину правой колонки (с учетом padding) */
+    margin-bottom: 20px; /* отступаем снизу 20px */
+    /*border: none; !* убираем внешние края *!*/
+    border-radius: 10px; /* скругляем края */
+    background: rgba(240,241,248, 50%); /* задаем цвет фона */
+    font-style: italic;
+    padding: 10px;
+    border-color: rgba(240,241,248, 40%);
+    /*opacity: 50%;*/
+
+}
+
+::placeholder {
+    color: #3e2093;
+    border-color: rgb(240,241,248);
+    font-size: 20px;
+}
+
+
+
+/* Это контейнер для поля сообщение */
+.message-box {
+    min-height: 200px; /* минимальная высота 200px */
+}
+
+/* Стили для контейнера кнопки */
+.button_control {
+    display: block;
+    float: right;
+    color: #fff;
+    font-size: 18px;
+    background: #3e2093;
+    /*outline: none;*/
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+    transition: 0.2s;
+}
+

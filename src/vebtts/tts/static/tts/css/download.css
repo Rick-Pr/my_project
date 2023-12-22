@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../img/background.jpg");
+    background-size: 100% auto;
+    display: flex;
+    justify-content: center; /* чтобы контейнер */
+    align-items: center; /* был по центру */
+}
+
+/* Ограничиваем контейнер по ширине 1000px */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+/* Стили самой формы */
+.content {
+    display: flex; /* делаем колонки в ряд */
+    align-items: center; /* выравниваем по центру */
+    /*justify-content: space-between; !* колонки растянутся на всю ширину *!*/
+    background: #727679;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.text_control{
+    position: relative;
+    left: 72%;
+    margin: 0 auto;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.71);
+}
+
+.audio_control{
+    position: relative;
+    margin: 100px auto;
+    color: #727679;
+    left: -35%;
+    top: 30px;
+    width: 800px;
+    height: 30px;
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+}

@@ -1,0 +1,30 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка</title>
+
+    <link rel="stylesheet" href="{% static 'tts/css/download.css' %}">
+    {% load static %}
+    <link type="image/x-icon" href="{% static 'tts/img/favicon.ico' %}" rel="shortcut icon">
+    {% load static %}
+    <link type="Image/x-icon" href="{% static 'tts/img/favicon.ico' %}" rel="icon">
+</head>
+<body>
+<div>
+    <h2 class="text_control">Вы можете прослушать и скачать ваш файл:</h2><br>
+    <!--    {{ text }}<br>-->
+</div>
+
+<div>
+    <!--    Загрузка аудио файла-->
+    {% load static %}
+    <audio src="{% static 'tts/files/audio_file.wav' %}" controls class="audio_control" id="sound1"></audio>
+</div>
+</body>
+<script>
+    document.getElementById("sound1").SetRate(2);
+</script>
+</html>
+
