@@ -1,4 +1,7 @@
 # Сайт для синтеза речи из текста
+
+
+## Данный проект позволит переводить текстовую информацию в аудио формат, прослушать и скачать.
 ## Основан на модуле tts [cilero](https://silero.ai/tag/text-to-speech/)
 
 ##Инструкция по установке и запуску
@@ -31,5 +34,6 @@ py manage.py migrate Txt
 ```
 py manage.py runserver
 ```
-## Примеры кода и  tts: [silero colab](https://colab.research.google.com/github/snakers4/silero-models/blob/master/examples_tts.ipynb)
+## Доступен только русский язык, символы и иностранные слова будут пропущены.
+## Для внимательного изучения и настройки tts обращайтесь к официальному источнику: [silero colab](https://colab.research.google.com/github/snakers4/silero-models/blob/master/examples_tts.ipynb)
 
