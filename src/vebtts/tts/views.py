@@ -10,6 +10,7 @@ from os import path
 import os
 
 
+# Загрузка страницы home
 def index(request):
     form = TxtForm()
 
@@ -17,22 +18,26 @@ def index(request):
     return render(request, './tts/home.html', context)
 
 
+# Загрузка страницы down_audio
 def down_audio(request):
+    # получение post запроса с данными для БД
     if request.method == 'POST':
         form = TxtForm(request.POST)
         if form.is_valid():
             form.save()
 
+    # Загрузка последней информации из БД
     text_form = ''
     if Txt.objects.all():
         text_form = str(Txt.objects.all().last())
 
-    # os.remove('/static/tts/files/audio_file.wav')
+    # удаление предыдущей записи tts
     destination_path = str(os.getcwd()) + '\\tts\\static\\tts\\files\\audio_file.wav'
     destination_path = os.path.normpath(destination_path)
     if path.exists(destination_path):
         os.remove(destination_path)
 
+    # Проверка введённого значения
     try:
         main(text_form)
     except ValueError:
@@ -53,7 +58,10 @@ def va_speak(what: str):
     put_yo = True
     device = torch.device('cpu')  # cpu или gpu
 
+    # Установка количество потоков для обработки
     torch.set_num_threads(4)
+
+    # Получение и обработка модели
     torch.hub.download_url_to_file('https://raw.githubusercontent.com/snakers4/silero-models/master/models.yml',
                                    'latest_silero_models.yml',
                                    progress=False)
@@ -63,17 +71,19 @@ def va_speak(what: str):
                               speaker=model_id,
                               name=name)
     model.to(device)
-
+    # Подключение и загрузка модели
     audio = model.apply_tts(text=what + "..",
                             speaker=speaker,
                             sample_rate=sample_rate,
                             put_accent=put_accent,
                             put_yo=put_yo)
 
+    # Сохранение части записи
     output_file = 'output.wav'
     sf.write(output_file, audio, sample_rate)
 
 
+# Разбиение текста на части для буфера PyTorch
 def preprocessing_text(text):
     t = []
     while len(text) > 800:
@@ -83,9 +93,11 @@ def preprocessing_text(text):
     return t
 
 
+# Получение текста и создание цельного аудио
 def main(txt):
     set_of_texts = preprocessing_text(txt)
 
+    # Синтез речи по 800 знаков и совмещение в один аудио файл
     num = 1
     for text in set_of_texts:
         va_speak(text)
@@ -102,7 +114,7 @@ def main(txt):
 
     output_file = 'audio_file.wav'
 
-    # Установить имя файла с путем
+    # перенос готового аудио в .\files и удаление буферного файла
     source_path = str(os.getcwd()) + '\\' + output_file
     source_path = os.path.normpath(source_path)
     if path.exists(source_path):

@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Загрузка</title>
-
+    <!-- Подключение файла стилей -->
     <link rel="stylesheet" href="{% static 'tts/css/download.css' %}">
+    <!--    установка иконок-->
     {% load static %}
     <link type="image/x-icon" href="{% static 'tts/img/favicon.ico' %}" rel="shortcut icon">
     {% load static %}
@@ -23,8 +24,6 @@
     <audio src="{% static 'tts/files/audio_file.wav' %}" controls class="audio_control" id="sound1"></audio>
 </div>
 </body>
-<script>
-    document.getElementById("sound1").SetRate(2);
-</script>
+
 </html>
 

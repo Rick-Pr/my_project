@@ -5,6 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--    установка иконок-->
     {% load static %}
     <link type="image/x-icon" href="{% static 'tts/img/favicon.ico' %}" rel="shortcut icon">
     {% load static %}
@@ -21,14 +22,14 @@
 </head>
 <body>
 <div class="container">
+<!--    Форма для отправки введёного текста-->
+    <form action="http://127.0.0.1:8000/download/" method="POST" target="_blank">
+        {% csrf_token %}
 
-        <form action="http://127.0.0.1:8000/download/" method="POST" target="_blank">
-            {% csrf_token %}
+        {{ form.name }}<br>
 
-            {{ form.name }}<br>
-
-            <button class="button_control" type="submit" name="download">Озвучить</button>
-        </form>
+        <button class="button_control" type="submit" name="download">Озвучить</button>
+    </form>
 
 
 </div>
