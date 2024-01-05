@@ -59,7 +59,7 @@ body {
 
 .input-box textarea,
 .text_control {
-    height: 300px; /* по сути задаем высоту input'а */
+    height: 300px; /* задаем высоту input'а */
     width: 100%; /* ширина на всю ширину правой колонки (с учетом padding) */
     margin-bottom: 20px; /* отступаем снизу 20px */
     /*border: none; !* убираем внешние края *!*/
