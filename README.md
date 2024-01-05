@@ -15,11 +15,13 @@ git clone
 В терминале cd К пути где находится my_project добавить \my_project\src\vebtts 
 Например cd C:\my_project\src\vebtts
 ```
-
 Шаг 3. Установка модулей:
 ```
 pip install -r requirements.txt
-В случае ошибки python py -m pip install --upgrade pip
+```
+В случае ошибки:
+```
+python py -m pip install --upgrade pip
 ```
 
 Шаг 4. Сделать миграции:
