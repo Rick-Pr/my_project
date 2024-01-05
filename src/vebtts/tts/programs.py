@@ -59,9 +59,7 @@ def tts(text_form):
             file1 = 'audio_file.wav'
             file2 = 'output.wav'
             if num == 1:
-                print(1)
-                print(os.getcwd())
-                file1 = './src/vebtts/tts/static/tts/files/silent.wav'
+                file1 = './tts/static/tts/files/silent.wav'
 
             song1 = AudioSegment.from_wav(f"{file1}", '')
             song2 = AudioSegment.from_wav(f"{file2}")
@@ -74,7 +72,7 @@ def tts(text_form):
         source_path = str(os.getcwd()) + '\\' + output_file
         source_path = os.path.normpath(source_path)
         print(source_path)
-        destination_path = str(os.getcwd()) + '\\src\\vebtts\\tts\\static\\tts\\files\\audio_file.wav'
+        destination_path = str(os.getcwd()) + '\\tts\\static\\tts\\files\\audio_file.wav'
         destination_path = os.path.normpath(destination_path)
         if path.exists(source_path):
             print(destination_path)
@@ -83,7 +81,7 @@ def tts(text_form):
         os.remove('output.wav')
 
     # удаление предыдущей записи tts
-    destination_path = str(os.getcwd()) + '\\src\\vebtts\\tts\\static\\tts\\files\\audio_file.wav'
+    destination_path = str(os.getcwd()) + '\\tts\\static\\tts\\files\\audio_file.wav'
     destination_path = os.path.normpath(destination_path)
     if path.exists(destination_path):
         os.remove(destination_path)
