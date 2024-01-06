@@ -1,6 +1,8 @@
 from django.test import TestCase
+import pytest
 
 
+@pytest.fixture()
 class TestSite(TestCase):
     def test_index_page(self):
         self.assertEquals(self.client.get('').status_code, 200)
